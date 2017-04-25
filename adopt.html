@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/jpg" href="img/logo.jpg"/>
+<title>Kate's Rabbit Cafe</title>
+    <link href="https://fonts.googleapis.com/css?family=Lato|Muli" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.css" rel="stylesheet">
+<link rel="stylesheet" href="css/buttons.css">
+<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+<script type="text/javascript" src="js/buttons.js"></script>
+</head>
+    
+<body>
+<canvas id="canvas"></canvas>
+<!-- TOP NAVIGATION / HEADER -->
+<div class="wrapper">
+<header>
+   <div class="container">
+    <img class ="bunnylogo" src ="img/logo.jpg">
+       <div class="logo"> <a href ="index.html">KATE'S RABBIT CAFE</a></div>
+	 <a href="javascript:void(0);" class="m_btn">
+	   <span></span>
+	   <span></span>
+	   <span></span>
+	 </a>
+	 <nav class="menu">
+	    <ul>
+		  <li><a href="menu.html">Menu</a></li>
+		  <li><a href="about.html">About</a></li>
+		  <li><a href="adopt.html">Adopt</a></li>
+            <li><a href="order.html">Order</a></li>
+		</ul>
+	 </nav>
+   </div>
+</header>   
+</div>  
+
+<!--INTRO MESSAGE-->  
+<div class ="intro">
+    <h2>ADOPT</h2>
+    <hr>
+    
+<!--FORM-->
+    <form id="adopt" action="/" method="post">    
+    <div class = "name">
+        <label>
+            <h3><span>Name: (required)</span></h3>
+          <input placeholder="Please enter your name" type="text" required autofocus>
+        </label>
+    </div>
+        <label>
+          <h3><span>Age: (required)</span></h3>
+          <input placeholder="Please enter your age" type="text" required autofocus>
+        </label>
+    <br>
+        <label>
+        <h3><span>Email: (required)</span></h3>
+          <input placeholder="Please enter your email" type="text" required autofocus>
+        </label>
+    <br>
+    <div class ="A">
+        <label>
+            <h3><span>Have you owned/do you currently own a rabbit?</span></h3> 
+                <INPUT TYPE="radio" NAME="q1" VALUE="yes">Yes <br>
+                <INPUT TYPE="radio" NAME="q1" VALUE="no">No <br>
+                    </INPUT></INPUT>
+        </label>
+    </div>
+    <div>
+        <label>
+            <h3><span>Additional Information:</span></h3>
+            <textarea placeholder="Write here"></textarea>
+        </label>
+    </div>
+    <br>
+        <input type="reset" class="button button-pill button-highlight" value="Submit">
+    <br>
+    <br>
+    </form> 
+</div>
+
+<!--bottomimg-->
+    <div class="bottomimg">
+    <img src ="img/indexlogo.jpg">
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+
+<!--FOOTER--> 
+    <div id ="footer">                 
+            <div class="contact">
+                <div class ="hours">7:00am - 8:00pm</div>     
+                <div class ="number">444-444-4444</div>
+                <div class ="address">40 Meadow St, NY, NY 04040</div>
+            </div>
+    </div>
+    
+<!--JAVASCRIPT-->
+<script type="text/javascript" src="js/jquery.js"></script>	   
+<script type="text/javascript">
+<!--navigation-->
+    $(document).ready(function(){
+      $('.m_btn').click(function(){
+        $('.menu').stop().slideToggle();
+      });
+
+    });
+
+<!--snowfall-->
+       window.onload = function() {
+      const canvas = $("canvas")[0];
+      const context = canvas.getContext("2d");
+
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+
+      const area = canvas.width * canvas.height;
+      const factor = 6000;
+      const maxParticles = (area / factor);
+      const diameterFactor = 3;
+      let particles = [ ];
+
+      function Particle() {
+        this.visible = true;
+        this.x = Math.floor(Math.random() * canvas.width);
+        this.y = Math.floor(Math.random() * canvas.height);
+        this.vx = Math.random() - 0.5;
+        this.vy = (Math.random() * 0.7) + 0.1;
+        this.diameter = Math.random() * diameterFactor;
+        this.color = "rgba(255, 215, 215, 0.8)";
+      }
+
+      Particle.prototype = {
+
+        update : function() {
+          var pad = 0;
+          this.x += this.vx;
+          this.y += this.vy;
+          /* Check if the particle is out of the screen. */
+          if (!((pad <= this.x && this.x < canvas.width - pad) &&
+                (pad <= this.y && this.y < canvas.height - pad))) {
+            this.visible = false;
+          }
+        },
+
+        draw : function() {
+          context.fillStyle = this.color;
+          context.beginPath();
+          context.arc(this.x, this.y, this.diameter, 0, 2 * Math.PI, false);
+          context.fill();
+        }
+      };
+
+      function createParticles() {
+        for (i = particles.length; i < maxParticles; i++) {
+          particles.push(new Particle());
+        }
+      }
+
+      function validate() {
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        /* Render each particle. */
+        particles.forEach(function(particle) {
+          particle.draw();
+        });
+      }
+
+      function updateParticles() {
+        createParticles();
+        particles.forEach(particle => particle.update());
+
+        particles.forEach(function(particle) {
+          particle.update();
+        });
+
+        particles = particles.filter(function(particle) {
+          return particle.visible;
+        });
+
+        validate();
+        requestAnimationFrame(updateParticles);
+      }
+
+      createParticles();
+      updateParticles();
+    }
+
+</script>
+<!--FOOTER--> 
+    <div id ="footer">                 
+            <div class="contact">
+                <div class ="hours">7:00am - 8:00pm</div>     
+                <div class ="number">444-444-4444</div>
+                <div class ="address">40 Meadow St, NY, NY 04040</div>
+            </div>
+    </div>
+    
+</body>
+</html>

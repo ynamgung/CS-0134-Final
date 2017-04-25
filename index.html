@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/jpg" href="img/logo.jpg"/>
+<title>Kate's Rabbit Cafe</title>
+    <link href="https://fonts.googleapis.com/css?family=Lato|Muli|Open+Sans:700" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js.js"></script>
+</head>
+    
+<body>
+<canvas id="canvas">
+</canvas>
+
+<!-- TOP NAVIGATION / HEADER -->
+<div class="wrapper">
+<header>
+   <div class="container">
+    <img class ="bunnylogo" src ="img/logo.jpg">
+       <div class="logo"> <a href ="index.html">KATE'S RABBIT CAFE</a></div>
+	 <a href="javascript:void(0);" class="m_btn">
+	   <span></span>
+	   <span></span>
+	   <span></span>
+	 </a>
+	 <nav class="menu">
+	    <ul>
+		  <li><a href="menu.html">Menu</a></li>
+		  <li><a href="about.html">About</a></li>
+		  <li><a href="adopt.html">Adopt</a></li>
+            <li><a href="order.html">Order</a></li>
+		</ul>
+	 </nav>
+   </div>
+</header>   
+</div>  
+
+<div class="body">
+<!--INTRO MESSAGE-->  
+<div class ="intro">
+    <h2>HELLO</h2>
+    <hr>
+    <p>Rabbit cafes are unique adoption platforms, allowing potential adopters to interact with the rabbits prior to making a decision to adopt. Traditionally, rabbits are held in cages, which allow for little interaction between the two, and can inhibit adoption rates. The socialization with people further rehabilitates our rabbits and get them ready for a forever home. Many people who love rabbits and crave their company visit the cafe to get their rabbit fix if they are unable to own, are allergic, or otherwise. You can also study here as well: we have tables, chairs, and couches. Did we mention free WiFi?</p> 
+</div>
+
+<!--LIGHTBOX-->
+<div class ="intro2">
+    <h2>GALLERY</h2>
+        <hr>
+    </div>
+    <div class ="lightbox">
+        <div class="row">
+      <div class="column">
+        <img src="img/5.png" style="width:100%" onclick="openModal();currentSlide(1)" class="hover-shadow cursor">
+      </div>
+      <div class="column">
+        <img src="img/7masked.png" style="width:100%" onclick="openModal();currentSlide(2)" class="hover-shadow cursor">
+      </div>
+      <div class="column">
+        <img src="img/4.jpeg" style="width:100%" onclick="openModal();currentSlide(3)" class="hover-shadow cursor">
+      </div>
+      <div class="column">
+        <img src="img/6masked.png" style="width:100%" onclick="openModal();currentSlide(4)" class="hover-shadow cursor">
+      </div>
+    </div>
+
+    <div id="myModal" class="modal">
+      <span class="close cursor" onclick="closeModal()">&times;</span>
+      <div class="modal-content">
+
+        <div class="mySlides">
+          <div class="numbertext">1 / 4</div>
+          <img src="img/image5.png" style="width:100%">
+        </div>
+
+        <div class="mySlides">
+          <div class="numbertext">2 / 4</div>
+          <img src="img/7.png" style="width:100%">
+        </div>
+
+        <div class="mySlides">
+          <div class="numbertext">3 / 4</div>
+          <img src="img/4wide.png" style="width:100%">
+        </div>
+
+        <div class="mySlides">
+          <div class="numbertext">4 / 4</div>
+          <img src="img/6.png" style="width:100%">
+        </div>
+
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+        <div class="caption-container">
+          <p id="caption"></p>
+        </div>
+
+
+        <div class="column">
+          <img class="demo cursor" src="img/image5.png" style="width:100%" onclick="currentSlide(1)" alt="">
+        </div>
+        <div class="column">
+          <img class="demo cursor" src="img/7.png" style="width:100%" onclick="currentSlide(2)" alt="">
+        </div>
+        <div class="column">
+          <img class="demo cursor" src="img/4wide.png" style="width:100%" onclick="currentSlide(3)" alt="">
+        </div>
+        <div class="column">
+          <img class="demo cursor" src="img/6.png" style="width:100%" onclick="currentSlide(4)" alt="">
+        </div>
+      </div>
+    </div>
+    </div> 
+    <br>
+
+<!--BOTTOM IMAGE-->
+<div class="bottomimg">
+    <img src ="img/indexlogo.jpg">
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+
+</div>
+    
+<!--FOOTER--> 
+    <div id ="footer">                 
+            <div class="contact">
+                <div class ="hours">7:00am - 8:00pm</div>     
+                <div class ="number">444-444-4444</div>
+                <div class ="address">40 Meadow St, NY, NY 04040</div>
+            </div>
+    </div>
+    
+<!--JAVASCRIPT-->
+<script type="text/javascript" src="js/jquery.js"></script>	
+    
+<script type="text/javascript">
+    <!--navigation-->
+    $(document).ready(function(){
+      $('.m_btn').click(function(){
+        $('.menu').stop().slideToggle();
+      });
+
+    });
+    
+<!--snowfall-->   
+window.onload = function() {
+  const canvas = $("canvas")[0];
+  const context = canvas.getContext("2d");
+
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  const area = canvas.width * canvas.height;
+  const factor = 6000;
+  const maxParticles = (area / factor);
+  const diameterFactor = 3;
+  let particles = [ ];
+
+  function Particle() {
+    this.visible = true;
+    this.x = Math.floor(Math.random() * canvas.width);
+    this.y = Math.floor(Math.random() * canvas.height);
+    this.vx = Math.random() - 0.5;
+    this.vy = (Math.random() * 0.7) + 0.1;
+    this.diameter = Math.random() * diameterFactor;
+    this.color = "rgba(255, 215, 215, 0.8)";
+  }
+
+  Particle.prototype = {
+
+    update : function() {
+      var pad = 0;
+      this.x += this.vx;
+      this.y += this.vy;
+      /* Check if the particle is out of the screen. */
+      if (!((pad <= this.x && this.x < canvas.width - pad) &&
+            (pad <= this.y && this.y < canvas.height - pad))) {
+        this.visible = false;
+      }
+    },
+
+    draw : function() {
+      context.fillStyle = this.color;
+      context.beginPath();
+      context.arc(this.x, this.y, this.diameter, 0, 2 * Math.PI, false);
+      context.fill();
+    }
+  };
+
+  function createParticles() {
+    for (i = particles.length; i < maxParticles; i++) {
+      particles.push(new Particle());
+    }
+  }
+
+  function validate() {
+    context.clearRect(0, 0, canvas.width, canvas.height);
+    /* Render each particle. */
+    particles.forEach(function(particle) {
+      particle.draw();
+    });
+  }
+
+  function updateParticles() {
+    createParticles();
+    particles.forEach(particle => particle.update());
+
+    particles.forEach(function(particle) {
+      particle.update();
+    });
+
+    particles = particles.filter(function(particle) {
+      return particle.visible;
+    });
+
+    validate();
+    requestAnimationFrame(updateParticles);
+  }
+
+  createParticles();
+  updateParticles();
+}
+
+    <!--lightbox-->
+    function openModal() {
+      document.getElementById('myModal').style.display = "block";
+    }
+
+    function closeModal() {
+      document.getElementById('myModal').style.display = "none";
+    }
+
+    var slideIndex = 1;
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+      showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+      showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+      var i;
+      var slides = document.getElementsByClassName("mySlides");
+      var dots = document.getElementsByClassName("demo");
+      var captionText = document.getElementById("caption");
+      if (n > slides.length) {slideIndex = 1}
+      if (n < 1) {slideIndex = slides.length}
+      for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+      }
+      for (i = 0; i < dots.length; i++) {
+          dots[i].className = dots[i].className.replace(" active", "");
+      }
+      slides[slideIndex-1].style.display = "block";
+      dots[slideIndex-1].className += " active";
+      captionText.innerHTML = dots[slideIndex-1].alt;
+    }
+</script>
+    
+</body>
+</html>

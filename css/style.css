@@ -1,0 +1,488 @@
+/*Simple reset*/
+
+
+html, body{
+    margin:0px; 
+    padding:0; 
+    font-family: 'Muli', sans-serif;
+    font-size:16px; 
+    line-height:28px; 
+    color: black; 
+    font-weight:400;  
+    background: white;
+}
+
+#canvas{
+    position: absolute;
+    z-index: 0;
+}
+
+.intro{
+    width: 90%;  
+    padding-top:90px;
+    padding-bottom: 60px;
+    margin: 0 auto -50px;
+    color: #282828;
+    font-family: 'Lato', sans-serif;
+    font-size: .95em;
+    position: relative;
+    z-index: 1;
+}
+
+.intro2{
+    width: 90%;  
+    padding-top:20px;
+    padding-bottom: 60px;
+    margin: 0 auto -50px;
+    color: #282828;
+    font-family: 'Lato', sans-serif;
+    font-size: .95em;
+    position: relative;
+    z-index: 1;
+}
+
+/*RESET*/
+h1, h3, h4, h5, h6{
+    
+} 
+
+h2{
+    font-family: 'Muli', sans-serif;
+    font-weight: 800;
+    font-size: 1.5em;
+    color: #4C7682;
+    line-height: 22px;
+}
+
+table, select, ol, ul, li{
+    text-align: left;
+    margin:0; 
+    padding:0; 
+    font-weight:normal; 
+    border:0px;
+}
+
+table{ 
+
+    border:0; 
+    padding:0; 
+    margin:0; 
+    border-spacing:0; 
+    border-collapse:collapse;
+}
+
+a, a:link, a:focus{
+    text-decoration:none;
+    color: white
+}
+
+a:hover{
+    color:#E27672;
+}
+
+a, img{
+    border:0px;
+}
+
+li{
+    list-style:none;
+}
+
+a{
+    -webkit-transition: all 0.3s ease; 
+    -moz-transition: all 0.3s ease; 
+    -ms-transition: all 0.3s ease; 
+    transition: all 0.3s ease;
+}
+
+.hide{display:none !important;}
+
+.show{display:block !important;}
+
+.lft{float:left !important;}
+
+.rt{float:right !important;}
+
+.clearfix:before, .clearfix:after, .container:before, .container:after{display:block; line-height:0; content:"";}
+.clearfix:after, .container:after{
+    clear:both;
+}
+
+.clr{ 
+    clear:both !important;
+}
+
+.trans{
+    -webkit-transition: all 0.5 ease-in; 
+    -moz-transition: all 0.5s ease; 
+    -ms-transition: all 0.5s ease-in; 
+    transition: all 0.5s ease;
+}
+
+*{
+  -webkit-box-sizing:border-box;
+  -moz-box-sizing:border-box;
+  box-sizing:border-box;
+}
+
+
+/*TEXT STYLES*/
+
+.wrapper{
+    width:100%; 
+    height:100%;
+}
+
+.container{
+    max-width:1170px; 
+    margin:0 auto; 
+    position:relative; 
+    padding:0 20px;
+}
+
+header{
+    background:#6EA7B8; 
+    padding:25px 0;
+    width: 100%;
+    position: fixed;
+    z-index: 2;
+}
+
+.logo{
+    position: fixed;
+    font-family: 'Open-Sans', sans-serif;
+    padding-left: 55px;
+    font-size:1.5625em; 
+    font-style: normal;
+	font-variant: normal;
+    font-weight: 700;
+    color: white;
+    text-decoration: none;
+}
+
+.bunnylogo{
+  position: fixed;
+    top: 9px;
+    max-width:100%;
+   max-height:auto;
+    width: 45px;
+    height: auto;
+    display: inline-block;
+}
+
+.menu{
+    float:right;
+}
+
+.menu > ul{}
+
+.menu > ul > li{
+    float:left; 
+    margin-left:20px;
+}
+
+.menu > ul > li > a{
+    font-size:14px; 
+    color: white;
+}
+
+/*HOVER COLOR*/
+.menu > ul > li > a:hover{
+    color:#E27672;
+}
+
+.m_btn{
+    float:right; 
+    display:block; 
+    width:36px;
+}
+
+.m_btn span{
+    background:white; 
+    height:2px; 
+    display:block; 
+    margin:7px 0;
+}
+
+hr{
+    display: block;
+    height: 2px;
+    border: 0;
+    border-top: 1px solid #B8936E;
+    margin: 1em 0;
+    padding: 0; 
+}
+
+.bottomimg{
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/*FOOTER*/
+#footer{
+    background-color: #6EA7B8;
+    width: 100%;
+    bottom: 0px;
+    margin: 0 auto; 
+    position: fixed;
+    z-index: 2;
+}
+
+.contact{
+    text-align: center;
+    font-family: 'Futura';
+    font-size: .625em;
+/*    margin: -10px;*/
+    vertical-align: middle;
+    line-height: 30px; 
+    color: white;
+}
+
+.hours {
+    display: inline-block;
+    text-align: left;
+    margin: 10px;
+}
+
+.number {
+    display: inline-block;
+    text-align: center;
+    margin: 10px;
+}
+
+.address {
+    display: inline-block;
+}
+
+/*LIGHTBOX*/
+.lightbox{
+    position: relative;
+    width: 90%;  
+    padding-top:20px;
+    padding-bottom: 80px;
+    margin: 0 auto -50px;
+    color: #FFF9F9;
+    font-family: 'Lato', sans-serif;
+    font-size: .95em;
+    z-index: 2;
+}
+
+h3{
+    font-family: 'Muli', sans-serif;
+    font-weight: 800;
+    font-size: 1.3em;
+    color: #4C7682;
+    line-height: 22px; 
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.row > .column {
+  padding: 0 8px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.column {
+  float: left;
+  width: 25%;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none;
+  position: fixed;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: black;
+}
+
+/* Modal Content */
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  width: 90%;
+  max-width: 1200px;
+}
+
+/* The Close Button */
+.close {
+  color: white;
+  position: absolute;
+  top: 10px;
+  right: 25px;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #999;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.mySlides {
+  display: none;
+}
+
+.cursor {
+  cursor: pointer
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+img {
+  margin-bottom: -4px;
+}
+
+.caption-container {
+  text-align: center;
+  background-color: black;
+  padding: 2px 16px;
+  color: white;
+}
+
+.demo {
+  opacity: 0.6;
+}
+
+.active,
+.demo:hover {
+  opacity: 1;
+}
+
+img.hover-shadow {
+  transition: 0.3s
+}
+
+.hover-shadow:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)
+}
+
+/*MENU*/
+.menu-body {
+    max-width: 680px;
+    margin: 0 auto;
+    display: block;
+    color: #3C3C3C;
+}
+ 
+.menu-section {
+    margin-bottom: 80px;
+}
+ 
+.menu-section-title {
+    font-family: 'Futura';
+    font-size: 1.75em;
+    display: block;
+    font-weight:normal;
+    margin: 0;
+    text-align: Center;
+    color: #4C7682;
+}
+ 
+.menu-item {
+    margin: 35px 0;
+    
+}
+ 
+.menu-item-name{
+    font-family: 'Futura';
+    font-size: 1.1em;
+    border-bottom: 2px dotted #B8936E;
+}
+ 
+.menu-item-description {
+    font-style: italic;
+    font-size: .89em;
+    line-height: 1.8em;
+    font-family: 'Lucida Bright';
+}
+ 
+.menu-item-price{
+    float: right;
+    font-weight: bold;
+    font-family: 'Lucida Bright';
+    font-size: .89em;
+    margin-top: -22px;
+}
+
+/*MEDIA*/
+@media(min-width:768px){
+.m_btn{display:none;}
+.menu{display:block !important;}
+}
+
+@media(max-width:767px){
+.m_btn{
+    display:block;
+}
+    
+.menu{
+    display:none; 
+    width:100%; 
+    margin-top:20px;
+}
+    
+.menu > ul > li{
+    margin-left:0; 
+    padding:5px 0; 
+    border-top:1px solid white; 
+    float:none;
+}
+
+    .logo{font-size: 22px;}
+}
+
+]

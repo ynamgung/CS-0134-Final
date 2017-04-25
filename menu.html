@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/jpg" href="img/logo.jpg"/>
+<title>Kate's Rabbit Cafe</title>
+    <link href="https://fonts.googleapis.com/css?family=Lato|Muli|Open+Sans:800" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js.js"></script>
+    <style>
+        .menu-body{
+            background-image: url('img/Background.png');
+            background-size: 130%;
+            }
+    </style>
+</head>
+    
+<body>
+<canvas id="canvas"></canvas>
+<!-- TOP NAVIGATION / HEADER -->
+<div class="wrapper">
+<header>
+   <div class="container">
+    <img class ="bunnylogo" src ="img/logo.jpg">
+       <div class="logo"> <a href ="index.html">KATE'S RABBIT CAFE</a></div>
+	 <a href="javascript:void(0);" class="m_btn">
+	   <span></span>
+	   <span></span>
+	   <span></span>
+	 </a>
+	 <nav class="menu">
+	    <ul>
+		  <li><a href="menu.html">Menu</a></li>
+		  <li><a href="about.html">About</a></li>
+		  <li><a href="adopt.html">Adopt</a></li>
+            <li><a href="order.html">Order</a></li>
+		</ul>
+	 </nav>
+   </div>
+</header>   
+</div> 
+
+<!--INTRO-->
+<div class ="intro">
+    <h2>Our Menu</h2>
+<hr>
+        <p>Our café partners with local farmers to provide the freshest ingredients possible. We also feature award winning coffee and espresso from That Coffee Shop and That Other Coffee Shop. </p>
+    <br>  
+    
+<!--MENU-->
+    <div class="menu-body">
+       <div class="menu-section">
+          <h2 class="menu-section-title">DRINKS</h2>
+          <!-- Item starts -->
+          <div class="menu-item">
+             <div class="menu-item-name">
+                Coffee
+             </div>
+             <div class="menu-item-price">
+                $2.50 S/$4.00 L
+             </div>
+             <div class="menu-item-description">
+                Call us for our daily roast special. Can substitute milk for almond, soy, coconut.
+             </div>
+        <!--Cafe Au Lait--> 
+          </div>
+          <div class="menu-item">
+             <div class="menu-item-name">
+                Cafe Au Lait
+             </div>
+             <div class="menu-item-price">
+                $4.00 S/$5.50 L
+             </div>
+             <div class="menu-item-description">
+                Coffee with steamed milk.
+             </div>
+          </div>
+          <!-- Cold Brew -->
+          <div class="menu-item">
+             <div class="menu-item-name">
+                Cold Brew
+             </div>
+             <div class="menu-item-price">
+                $3.00 S/$5.00 L
+             </div>
+             <div class="menu-item-description">
+                Coffee steeped cool water overnight to create the smoothest, most delicious iced coffee.
+             </div>
+          </div>
+          <!-- Hot Chocolate -->
+          <div class="menu-item">
+             <div class="menu-item-name">
+                Hot Chocolate
+             </div>
+             <div class="menu-item-price">
+                $3.00 S/$5.00 L
+             </div>
+             <div class="menu-item-description">
+                Served with whipped cream. Can substitute milk for almond, soy, coconut.
+             </div>
+          </div>
+       </div>
+       <!-- /Drinks -->
+       <!-- Snacks -->
+       <div class="menu-section">
+          <h2 class="menu-section-title">SNACKS</h2>
+          <!-- HEC -->
+          <div class="menu-item">
+             <div class="menu-item-name">
+                Ham Egg and Cheese Sandwich
+             </div>
+             <div class="menu-item-price">
+                $6.50
+             </div>
+             <div class="menu-item-description">
+                Made with your choice of bread and cheese.
+             </div>
+          </div>
+          <!-- Fruit Salad -->
+          <div class="menu-item">
+             <div class="menu-item-name">
+                Fruit Salad
+             </div>
+             <div class="menu-item-price">
+                $5.00
+             </div>
+             <div class="menu-item-description">
+                Fresh fruit salad made with seasonal ingredients. 
+             </div>
+          </div>
+          <!-- Veggie Hummus Platter -->
+          <div class="menu-item">
+             <div class="menu-item-name">
+                Veggie Hummus Platter
+             </div>
+             <div class="menu-item-price">
+                $4.00
+             </div>
+             <div class="menu-item-description">
+                Made from fresh peppers, celery, broccoli with a side of hummus.
+             </div>
+          </div>
+          <!-- Yogurt -->
+          <div class="menu-item">
+             <div class="menu-item-name">
+                Yogurt Parfait
+             </div>
+             <div class="menu-item-price">
+                $6.00
+             </div>
+             <div class="menu-item-description">
+                All natural yogurt, granola, and fruit.
+             </div>
+          </div>
+       </div>
+       <!-- /Snacks -->
+    </div>
+    <br>
+<!--BOTTOMIMG-->
+    <div class="bottomimg">
+    <img src ="img/menu.jpg">
+    </div>
+</div>
+    
+<!--JAVASCRIPT-->
+<script type="text/javascript" src="js/jquery.js"></script>	   
+<script type="text/javascript">
+<!--navigation-->
+    $(document).ready(function(){
+      $('.m_btn').click(function(){
+        $('.menu').stop().slideToggle();
+      });
+
+    });
+
+<!--snowfall-->
+       window.onload = function() {
+      const canvas = $("canvas")[0];
+      const context = canvas.getContext("2d");
+
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+
+      const area = canvas.width * canvas.height;
+      const factor = 6000;
+      const maxParticles = (area / factor);
+      const diameterFactor = 3;
+      let particles = [ ];
+
+      function Particle() {
+        this.visible = true;
+        this.x = Math.floor(Math.random() * canvas.width);
+        this.y = Math.floor(Math.random() * canvas.height);
+        this.vx = Math.random() - 0.5;
+        this.vy = (Math.random() * 0.7) + 0.1;
+        this.diameter = Math.random() * diameterFactor;
+        this.color = "rgba(255, 215, 215, 0.8)";
+      }
+
+      Particle.prototype = {
+
+        update : function() {
+          var pad = 0;
+          this.x += this.vx;
+          this.y += this.vy;
+          /* Check if the particle is out of the screen. */
+          if (!((pad <= this.x && this.x < canvas.width - pad) &&
+                (pad <= this.y && this.y < canvas.height - pad))) {
+            this.visible = false;
+          }
+        },
+
+        draw : function() {
+          context.fillStyle = this.color;
+          context.beginPath();
+          context.arc(this.x, this.y, this.diameter, 0, 2 * Math.PI, false);
+          context.fill();
+        }
+      };
+
+      function createParticles() {
+        for (i = particles.length; i < maxParticles; i++) {
+          particles.push(new Particle());
+        }
+      }
+
+      function validate() {
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        /* Render each particle. */
+        particles.forEach(function(particle) {
+          particle.draw();
+        });
+      }
+
+      function updateParticles() {
+        createParticles();
+        particles.forEach(particle => particle.update());
+
+        particles.forEach(function(particle) {
+          particle.update();
+        });
+
+        particles = particles.filter(function(particle) {
+          return particle.visible;
+        });
+
+        validate();
+        requestAnimationFrame(updateParticles);
+      }
+
+      createParticles();
+      updateParticles();
+    }
+
+</script>
+<!--FOOTER--> 
+    <div id ="footer">                 
+            <div class="contact">
+                <div class ="hours">7:00am - 8:00pm</div>     
+                <div class ="number">444-444-4444</div>
+                <div class ="address">40 Meadow St, NY, NY 04040</div>
+            </div>
+    </div>
+    
+</body>
+
+
+</html>
